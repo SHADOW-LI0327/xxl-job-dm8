@@ -19,13 +19,18 @@
 		t.fail_count
 	</sql>
 	
-	<insert id="save" parameterType="com.xxl.job.admin.core.model.XxlJobLogReport" useGeneratedKeys="true" keyProperty="id" >
+	<insert id="save" parameterType="com.xxl.job.admin.core.model.XxlJobLogReport">
+		<selectKey keyProperty="id" order="BEFORE" resultType="integer">
+			select seq_xxl_job_log_report.nextval from dual
+		</selectKey>
 		INSERT INTO xxl_job_log_report (
-			`trigger_day`,
-			`running_count`,
-			`suc_count`,
-			`fail_count`
+		    id,
+			trigger_day,
+			running_count,
+			suc_count,
+			fail_count
 		) VALUES (
+			#{id},
 			#{triggerDay},
 			#{runningCount},
 			#{sucCount},
@@ -38,10 +43,10 @@
 
 	<update id="update" >
         UPDATE xxl_job_log_report
-        SET `running_count` = #{runningCount},
-        	`suc_count` = #{sucCount},
-        	`fail_count` = #{failCount}
-        WHERE `trigger_day` = #{triggerDay}
+        SET running_count = #{runningCount},
+        	suc_count = #{sucCount},
+        	fail_count = #{failCount}
+        WHERE trigger_day = #{triggerDay}
     </update>
 
 	<select id="queryLogReport" resultMap="XxlJobLogReport">

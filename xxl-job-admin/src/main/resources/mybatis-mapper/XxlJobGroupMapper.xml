@@ -34,18 +34,21 @@
 		ORDER BY t.app_name, t.title, t.id ASC
 	</select>
 
-	<insert id="save" parameterType="com.xxl.job.admin.core.model.XxlJobGroup" useGeneratedKeys="true" keyProperty="id" >
-		INSERT INTO xxl_job_group ( `app_name`, `title`, `address_type`, `address_list`, `update_time`)
-		values ( #{appname}, #{title}, #{addressType}, #{addressList}, #{updateTime} );
+	<insert id="save" parameterType="com.xxl.job.admin.core.model.XxlJobGroup">
+		<selectKey keyProperty="id" order="BEFORE" resultType="integer">
+			select seq_xxl_job_group.nextval from dual
+		</selectKey>
+		INSERT INTO xxl_job_group (id, app_name, title, address_type, address_list, update_time)
+		values (#{id}, #{appname}, #{title}, #{addressType}, #{addressList}, #{updateTime} );
 	</insert>
 
 	<update id="update" parameterType="com.xxl.job.admin.core.model.XxlJobGroup" >
 		UPDATE xxl_job_group
-		SET `app_name` = #{appname},
-			`title` = #{title},
-			`address_type` = #{addressType},
-			`address_list` = #{addressList},
-			`update_time` = #{updateTime}
+		SET app_name = #{appname},
+			title = #{title},
+			address_type = #{addressType},
+			address_list = #{addressList},
+			update_time = #{updateTime}
 		WHERE id = #{id}
 	</update>
 

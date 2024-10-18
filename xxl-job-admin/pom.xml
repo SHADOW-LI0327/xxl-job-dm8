@@ -63,13 +63,20 @@
 			<artifactId>mybatis-spring-boot-starter</artifactId>
 			<version>${mybatis-spring-boot-starter.version}</version>
 		</dependency>
-		<!-- mysql -->
+
+		<!-- mysql
 		<dependency>
 			<groupId>com.mysql</groupId>
 			<artifactId>mysql-connector-j</artifactId>
 			<version>${mysql-connector-j.version}</version>
 		</dependency>
-
+        -->
+		<!-- dm8 -->
+		<dependency>
+			<groupId>com.dameng</groupId>
+			<artifactId>DmJdbcDriver18</artifactId>
+			<version>${dm.version}</version>
+		</dependency>
 		<!-- xxl-job-core -->
 		<dependency>
 			<groupId>com.xuxueli</groupId>

@@ -1,3 +1,8 @@
+<h1 style="color:red;text-align: center">感谢原作者开源,本项目仅为xxl-job的达梦数据库适配,原项目请访问<h1>
+
+<p style="text-align: center"><a href="https://github.com/xuxueli/xxl-job">https://github.com/xuxueli/xxl-job</a></p>
+<p style="text-align: center"><a href="./CHANGELOG.md">相关调整可参考更新日志</a></p>
+
 <p align="center" >
     <img src="https://www.xuxueli.com/doc/static/xxl-job/images/xxl-logo.jpg" width="150">
     <h3 align="center">XXL-JOB</h3>
